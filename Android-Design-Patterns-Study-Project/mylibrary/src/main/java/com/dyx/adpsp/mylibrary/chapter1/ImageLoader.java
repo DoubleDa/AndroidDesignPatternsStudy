@@ -22,11 +22,20 @@ public class ImageLoader {
     /**
      * 创建ImageCache对象
      */
-    ImageCache mImageCache = new ImageCache();
+    ImageCache mImageCache = new MemoryCache();
     /**
-     * 创建线程池
+     * TODO 创建线程池
      */
     ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
+    /**
+     * 注入缓存实现
+     *
+     * @param imageCache
+     */
+    public void setImageCache(ImageCache imageCache) {
+        mImageCache = imageCache;
+    }
 
     /**
      * 显示图片
@@ -63,7 +72,7 @@ public class ImageLoader {
                     imageView.setImageBitmap(downBitmap);
                 }
                 //将已下载图片放入缓存
-                mImageCache.put(imgUrl, downBitmap);
+                mImageCache.set(imgUrl, downBitmap);
             }
         });
     }
