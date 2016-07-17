@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">设计模式</string>
+    <string name="tv_calculate_room_price">计算租房价格</string>
+    <string name="tv_calculate_price">价格</string>
+    <string name="tv_calculate_area">面积</string>
+    <string name="but_calculate">计算结果</string>
+    <string name="tv_no_result">没有计算结果</string>
 </resources>
